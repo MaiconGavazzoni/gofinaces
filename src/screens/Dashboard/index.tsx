@@ -1,7 +1,7 @@
 import React from 'react';
-import { getBottomSpace } from 'react-native-iphone-x-helper';
+
 import { HighlightCard } from '../../components/HighlightCard';
-import { TransactionCard} from '../../components/TransactionCard';
+import { TransactionCard, TransactionCardProps} from '../../components/TransactionCard';
 
 import {
   Container,
@@ -20,9 +20,12 @@ import {
 
 } from './styles';
 
+interface DataListProps extends TransactionCardProps {
+  id: string;
+}
 
 export function Dashboard() {
-const data = [{ 
+const data: DataListProps[] = [{ 
   id:'1',
   type: 'positive',
   title:"Desenvolvimento de site",

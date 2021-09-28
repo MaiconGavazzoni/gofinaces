@@ -4,13 +4,15 @@ import { RFValue } from 'react-native-responsive-fontsize';
 import theme from '../../global/styles/theme';
 
 
-interface IconProps{
+interface TypeProps{
   type: 'up' | 'down' | 'total';
 }
 
 
-export const Container = styled.View`
-  background-color: ${({theme}) => theme.colors.shape};
+export const Container = styled.View<TypeProps>`
+  background-color: ${({theme, type}) =>  
+  type === 'total' ? theme.colors.secondary : theme.colors.shape};
+
   width: ${RFValue(300)}px;
   border-radius: 5px;
 
@@ -26,39 +28,42 @@ export const Header = styled.View`
 
 `;
 
-export const Title = styled.Text`
-   font-family: ${({theme}) => theme.fonts.regular};
+export const Title = styled.Text<TypeProps>`
+   font-family: ${({theme }) => theme.fonts.regular};
   font-size: ${RFValue(14)}px;
 
-  color: ${({theme}) => theme.colors.text_dark};
+  color: ${({theme, type}) =>  
+  type === 'total' ? theme.colors.shape : theme.colors.text_dark};
 `;
 
-export const Icon = styled(Feather)<IconProps>`
+export const Icon = styled(Feather)<TypeProps>`
    font-size: ${RFValue(40)}px;
 
-   ${(props) => props.type === 'up' && css`
+   ${({type}) => type === 'up' && css`
    color: ${({theme}) => theme.colors.success};
    `};
-   ${(props) => props.type === 'down' && css`
+   ${({type}) => type === 'down' && css`
    color: ${({theme}) => theme.colors.attention};
    `};
-   ${(props) => props.type === 'total' && css`
+   ${({type}) => type === 'total' && css`
    color: ${({theme}) => theme.colors.shape};
    `};
 `;
 
 export const Footer = styled.View``;
 
-export const Amount = styled.Text`
+export const Amount = styled.Text<TypeProps>`
   font-family: ${({theme}) => theme.fonts.medium};
   font-size: ${RFValue(32)}px;
-  color: ${({theme}) => theme.colors.text_dark};
+  color: ${({theme, type}) =>  
+  type === 'total' ? theme.colors.shape : theme.colors.text_dark};
   margin-top: 32px;
 `;
 
-export const LastTransaction = styled.Text`
+export const LastTransaction = styled.Text<TypeProps>`
   font-family: ${({theme}) => theme.fonts.regular};
   font-size: ${RFValue(12)}px;
 
-  color: ${({theme}) => theme.colors.text};
+  color: ${({theme, type}) =>  
+  type === 'total' ? theme.colors.shape : theme.colors.text};
 `;

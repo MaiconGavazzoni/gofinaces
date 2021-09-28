@@ -31,15 +31,15 @@ export function HighlightCard({
   lastTransaction,
   }:Props){
   return (
-    <Container>
+    <Container type={type}>
       <Header>
-        <Title>Entrar</Title>
+        <Title type={type}>Entrar</Title>
         <Icon name={icon[type]} type={type}/>
       </Header>
 
       <Footer>
-        <Amount>R$ 17.400,00</Amount>
-        <LastTransaction>{lastTransaction}</LastTransaction>
+        <Amount type={type}>R$ 17.400,00</Amount>
+        <LastTransaction type={type}>{lastTransaction}</LastTransaction>
 
       </Footer>
     </Container>

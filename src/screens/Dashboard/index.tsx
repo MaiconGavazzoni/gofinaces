@@ -16,11 +16,12 @@ import {
   HighlightCards,
   Transactions,
   Title,
-  TransactionList
+  TransactionList,
+  LogoutButton
 
 } from './styles';
 
-interface DataListProps extends TransactionCardProps {
+export interface DataListProps extends TransactionCardProps {
   id: string;
 }
 
@@ -73,7 +74,9 @@ const data: DataListProps[] = [{
               <UserName>Maicon</UserName>
             </User>
           </UserInfo>
+          <LogoutButton onPress={() => {}}>
           <Icon name="power" />
+          </LogoutButton>
         </UserWrapper>
       </Header>
 

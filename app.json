@@ -5,7 +5,12 @@
     "version": "1.0.0",
     "assetBundlePatterns": [
       "**/*"
-    ]
+    ],
+    "packagerOpts": {
+      "sourceExts": ["js", "jsx", "svgx"],
+      "transformer": "node_modules/react-native-svg-transformer/index.js"
+    }
   },
   "name": "gofinaces"
 }
+

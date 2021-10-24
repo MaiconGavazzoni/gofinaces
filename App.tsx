@@ -1,11 +1,15 @@
 
-
+import 'intl';
+import 'intl/locale-data/jsonp/pt-BR';
 import React from 'react';
+import {StatusBar} from 'react-native';
 import AppLoading from 'expo-app-loading';
 import { NavigationContainer } from '@react-navigation/native';
 
 
 import { AppRoutes } from './src/routes/app.routes';
+
+import { Signin} from './src/screens/Signin';
 
 import { 
   useFonts,
@@ -30,11 +34,18 @@ export default function App() {
    return <AppLoading />
  }
   return (
-    <NavigationContainer>
-    <ThemeProvider theme={theme} >
-      <AppRoutes />
-    </ThemeProvider>
-    </NavigationContainer>
+     <ThemeProvider theme={theme} >
+      <NavigationContainer>
+        <StatusBar 
+        barStyle="light-content"
+        backgroundColor="transparent"
+        translucent
+        
+         />
+        {/* <AppRoutes />       */}
+        <Signin />
+      </NavigationContainer>
+     </ThemeProvider>
     
   );
 }

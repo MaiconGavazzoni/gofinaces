@@ -9,7 +9,8 @@ import { NavigationContainer } from '@react-navigation/native';
 
 import { AppRoutes } from './src/routes/app.routes';
 
-import { Signin} from './src/screens/Signin';
+import { SignIn} from './src/screens/SignIn';
+import { AuthProvider } from './src/hooks/auth';
 
 import { 
   useFonts,
@@ -43,7 +44,9 @@ export default function App() {
         
          />
         {/* <AppRoutes />       */}
-        <Signin />
+        <AuthProvider >
+            <SignIn />
+        </AuthProvider>
       </NavigationContainer>
      </ThemeProvider>
     

@@ -1,5 +1,5 @@
 import React from  'react';
-import { TouchableOpacityProps } from 'react-native';
+import {  TouchableOpacityProps } from 'react-native';
 import { SvgProps } from 'react-native-svg';
 
 import {
@@ -15,9 +15,11 @@ interface Props extends TouchableOpacityProps {
   //onPress: () => void;
 }
 
-export function SignInSocialButon({title, svg: Svg, ...rest}: Props){
+export function SignInSocialButton({title, svg: Svg, ...rest}: Props){
   return(
-    <Button {...rest}>
+    <Button 
+    onPress={()=>{}}
+    {...rest}>
     <ImageContainer>
     <Svg />
     </ImageContainer>

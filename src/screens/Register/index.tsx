@@ -24,6 +24,7 @@ import {
   Fields,
   TransactionType
 } from './styles';
+import { useAuth } from '../../hooks/auth';
 
 type NavigationProps = {
   navigate:(screen: string) => void;
@@ -44,6 +45,7 @@ export function Register() {
   
   const [transactionType, setTransactionType] = useState('');
   const [categoryModalOpen, setCategoryModalOpen] = useState(false);
+  const { user} = useAuth();
 
   const [category, setCategory] = useState({
     key: 'category',
@@ -52,7 +54,7 @@ export function Register() {
 
   const navigation = useNavigation<NavigationProps>();
 
-  const dataKey = '@gofinances:transaction';
+  const dataKey = `@gofinances:transaction_user:${user.id}`;
 
   const {
     control,
